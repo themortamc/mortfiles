@@ -4,44 +4,44 @@
     "margin-top": 5,
     "margin-left": 10,
     "margin-right": 10,
-    "height": 20,
-    "spacing": 6,
-    "modules-left": ["hyprland/workspaces", "custom/browser", "custom/files", "custom/prism", "custom/steam", "custom/discord", "wlr/taskbar", "hyprland/window"],
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["custom/player-prev", "mpris", "custom/player-next", "tray"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/player-prev", "mpris", "custom/player-next", "cpu", "memory", "custom/ping", "custom/weather", "pulseaudio", "tray"],
+    "modules-right": ["custom/weather", "custom/ping", "cpu", "memory", "pulseaudio"],
 
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "",
-            "default": ""
-        },
-        "persistent-workspaces": {"*": 4}
-    },
+    // "hyprland/workspaces": {
+    //     "format": "{icon}",
+    //     "format-icons": {
+    //         "active": "",
+    //         "default": ""
+    //     },
+    //     "persistent-workspaces": {"*": 4}
+    // },
 
-    "hyprland/window": {
-        "format": " {title}",
-        "max-length": 30,
-        "separate-outputs": true
-    },
+    // "hyprland/window": {
+    //     "format": " {title}",
+    //     "max-length": 30,
+    //     "separate-outputs": true
+    // },
 
-    "custom/browser": { 
-        "format": "󰈹", 
-        "on-click": "zen-browser", 
-        "tooltip-format": "Zen Browser" 
-    },
-    "custom/files": { "format": "", "on-click": "dolphin", "tooltip-format": "Dolphin" },
-    "custom/prism": { "format": "", "on-click": "prismlauncher", "tooltip-format": "Prism Launcher" },
-    "custom/steam": { "format": "", "on-click": "steam", "tooltip-format": "Steam" },
-    "custom/discord": { "format": "", "on-click": "discord", "tooltip-format": "Discord" },
+    // "custom/browser": { 
+    // "format": "󰈹", 
+    // "on-click": "zen-browser", 
+    // "tooltip-format": "Zen Browser" 
+    // },
+    // "custom/files": { "format": "", "on-click": "dolphin", "tooltip-format": "Dolphin" },
+    // "custom/prism": { "format": "", "on-click": "prismlauncher", "tooltip-format": "Prism Launcher" },
+    // "custom/steam": { "format": "", "on-click": "steam", "tooltip-format": "Steam" },
+    // "custom/discord": { "format": "", "on-click": "discord", "tooltip-format": "Discord" },
 
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 18,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close"
-    },
+    // "wlr/taskbar": {
+    //     "format": "{icon}",
+    //     "icon-size": 18,
+    //     "tooltip-format": "{title}",
+    //     "on-click": "activate",
+    //     "on-click-middle": "close"
+    // },
 
     "clock": {
         "format": "{:%A / %H:%M / %d/%m/%y}",
@@ -61,12 +61,12 @@
     "mpris": {
         "format": "󰈹 {title}",
         "format-paused": "󰈹 <i>{title}</i>",
-        "max-length": 40,
+        "max-length": 28,
         "on-click": "playerctl play-pause"
     },
 
-    "cpu": { "format": "  {usage}%", "tooltip": false },
-    "memory": { "format": "  {}%", "tooltip": false },
+    "cpu": { "format": "  {usage}%", "tooltip": true },
+    "memory": { "format": "  {}%", "tooltip": true },
     
     "custom/ping": {
         "exec": "ping -c 1 -W 1 1.1.1.1 | grep time= | cut -d '=' -f 4 || echo 'X'",
@@ -75,7 +75,7 @@
     },
 
     "custom/weather": {
-        "exec": "curl -s 'https://wttr.in/Rivadavia,Mendoza?format=%t' | grep -v -e 'available' -e '<' || echo '--°C'",
+        "exec": "curl -s 'https://wttr.in/Rivadavia,Mendoza?format=%t' | grep -v -e 'available' -e '<' | tr -d '+' || echo '--°C'",
         "interval": 900,
         "format": " {}",
         "tooltip": false
@@ -89,5 +89,5 @@
         "scroll-step": 5
     },
 
-    "tray": {"spacing": 10}
+    "tray": {"spacing": 6}
 }
